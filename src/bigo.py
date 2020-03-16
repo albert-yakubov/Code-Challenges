@@ -83,8 +83,9 @@ print(find_in_number())
 end = time.time()
 print(f"runtime: {end-start} ")      
 
-# log n --- slows down the n to pwer increases
+# log n --- slows down the n to power increases
 # binary has to be lenth 2+ and sorted 
+# Binary search is for more expensive searches
 value = 7
 def find_val_binary(arr):
     if len(arr) <= 0:
@@ -117,4 +118,33 @@ my_random.sort()
 
 print(find_in_number())  
 end = time.time()
-print(f"runtime: {end-start} ")    
+print(f"runtime: {end-start} ")
+
+
+# insertion sort:
+
+my_list = [8 , 2 , 4 , 5 , 4 , 3]
+
+# make a function to sort the array
+
+def insertion_sort(list_to_sort):
+    # separate first elemement think of it as sorted 
+
+    # all the other once, starting at 1
+    for i in range(1, len(list_to_sort)):
+    # put current number in temp variable
+        temp = list_to_sort[i]
+    # look left, and shift items to right as we look through(iterate)
+        # we start at i 
+        j = i 
+        # start at number 
+        while j > 0 and temp < list_to_sort[j -1]:
+        # when left is maller than temp or we re at 0, put it at that spot:
+            list_to_sort[j] = list_to_sort[j -1]
+            #counter for j
+            j -= 1
+        
+        list_to_sort[j] = temp
+    return list_to_sort
+
+print (insertion_sort(my_list))
