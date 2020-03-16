@@ -9,8 +9,10 @@ import sys
 
 def slowestKey(keyTimes):
     # Write your code here
+    # setting times
     worst_time = [0] * 26
     previous_time = 0
+    # get the difference in time with the For loop 
     for event in keyTimes:
         current_key = event[0]
         current_time = event[1]
@@ -19,11 +21,12 @@ def slowestKey(keyTimes):
             worst_time[current_key] = time_diff
         previous_time = current_time
 
+    # start going through the list of characters 97 being 'a' 
     slowest_key_number = worst_time.index(max(worst_time))
     slowest_key = str(chr(slowest_key_number + 97))
 
     return slowest_key
-
+# user input set up returns key press log 
 if __name__ == '__main__':
     fptr = sys.stdout 
 
