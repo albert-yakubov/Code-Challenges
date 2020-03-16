@@ -50,20 +50,19 @@ def print_animal_triplets():
             for animal3 in animals: 
                 print(f"{animal1}, {animal2}, {animal3}")
 # 53 through 66 returns huuuuge list of animals
-# def get_animal_combos(list):
-#    list_len = len(list)
-#    if list_len == 0:
-#        return [[]]
-
-#   else:
-#        animal_combos = []
-#        previous_combos = get_animal_combos([list [1:]])
-#        for combo in previous_combos:
-#            animal_combos.append(combo)
-#            animal_combos.append(combo + [list[:0]])
-#        return animal_combos
-
-#print(get_animal_combos(animals))
+def get_animal_combos(l):
+    list_length = len(l)
+    if list_length == 0:
+        return [ [] ]
+    else:
+        animal_combos = []
+        previous_combos = get_animal_combos( l[1:] )
+        for combo in previous_combos:
+            animal_combos.append( combo )
+            animal_combos.append( combo + [l[0]] )
+        return animal_combos
+        
+print(get_animal_combos(animals))
 
 
 # linear search
